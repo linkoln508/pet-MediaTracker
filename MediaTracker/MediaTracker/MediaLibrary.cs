@@ -6,6 +6,9 @@ namespace MediaTracker
 {
     public class MediaLibrary
     {
+        public MediaLibrary() { 
+            totalCountLibrary++;
+        }
         static int totalCountLibrary = 0;
         private Dictionary<string, MediaItem> _mediaItems = new();
         public void AddMediaItem(MediaItem item)
@@ -13,7 +16,6 @@ namespace MediaTracker
             if (!_mediaItems.ContainsKey(item.NameTitle))
             {
                 _mediaItems.Add(item.NameTitle, item);
-                totalCountLibrary++;
             }
             else
             {
@@ -37,5 +39,6 @@ namespace MediaTracker
         {
             Console.WriteLine($"Количество медиа-элементов в библиотеке: {_mediaItems.Count}");
         }
+
     }
 }
