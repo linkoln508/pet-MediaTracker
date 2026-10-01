@@ -32,6 +32,11 @@ namespace MediaTracker
             Director = director;
             Genre = genre;
         }
+
+        public virtual string GetInfo()
+        {
+            return $"Названия Фильмеца: {NameTitle}, Year: {ReleaseYear}, Status: {Status}, Score: {Score}, Description: {Description}, Director: {string.Join(", ", Director)}, Genre: {string.Join(", ", Genre)}";
+        }
     }
 
     public class Movie : MediaItem
@@ -42,6 +47,11 @@ namespace MediaTracker
             : base(nameTitle, releaseYear, status, score, description, director, genre)
         {
             Duration = duration;
+        }
+
+        public override string GetInfo()
+        {
+            return base.GetInfo() + $", Duration: {Duration} minutes\n";
         }
     }
 
@@ -55,6 +65,11 @@ namespace MediaTracker
         {
             Seasons = seasons;
             Episodes = episodes;
+        }
+
+        public override string GetInfo()
+        {
+            return base.GetInfo() + $", Seasons: {Seasons}, Episodes: {Episodes}\n";
         }
     }
 }
