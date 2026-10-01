@@ -39,7 +39,8 @@ namespace MediaTracker
         }
          public void Rate(double score)
             {
-                if (score < 0 || score > 10)
+                const int rateMax = 10;
+            if (score < 0 || score > rateMax)
                 {
                     throw new ArgumentOutOfRangeException(nameof(score), "Оценка должна быть от 0 до 10!!!");
                 }

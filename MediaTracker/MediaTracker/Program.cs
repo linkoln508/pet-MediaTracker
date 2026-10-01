@@ -31,3 +31,4 @@ catch (ArgumentOutOfRangeException ex)
 {
     Console.WriteLine($"Ошибка: {ex.Message}");
 }
+
