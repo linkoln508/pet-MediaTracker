@@ -21,13 +21,8 @@ namespace MediaTracker
         public string Description { get; set; }
         public List<string> Director { get; set; } = new List<string>();
         public List<string> Genre { get; set; } = new List<string>();
-    }
 
-    public class Movie : MediaItem
-    {
-        public double Duration { get; set; }
-
-        public Movie(string nameTitle, int releaseYear,StatusEnum status, double score, string description, List<string> director, List<string> genre, double duration)
+        public MediaItem(string nameTitle, int releaseYear, StatusEnum status, double score, string description, List<string> director, List<string> genre)
         {
             NameTitle = nameTitle;
             ReleaseYear = releaseYear;
@@ -36,6 +31,16 @@ namespace MediaTracker
             Description = description;
             Director = director;
             Genre = genre;
+        }
+    }
+
+    public class Movie : MediaItem
+    {
+        public double Duration { get; set; }
+
+        public Movie(string nameTitle, int releaseYear, StatusEnum status, double score, string description, List<string> director, List<string> genre, double duration)
+            : base(nameTitle, releaseYear, status, score, description, director, genre)
+        {
             Duration = duration;
         }
     }
@@ -46,14 +51,8 @@ namespace MediaTracker
         public int Episodes { get; set; }
 
         public Series(string nameTitle, int releaseYear, StatusEnum status, double score, string description, List<string> director, List<string> genre, int seasons, int episodes)
+            : base(nameTitle, releaseYear, status, score, description, director, genre)
         {
-            NameTitle = nameTitle;
-            ReleaseYear = releaseYear;
-            Status = status;
-            Score = score;
-            Description = description;
-            Director = director;
-            Genre = genre;
             Seasons = seasons;
             Episodes = episodes;
         }
