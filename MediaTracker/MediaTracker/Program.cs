@@ -32,3 +32,40 @@ catch (ArgumentOutOfRangeException ex)
     Console.WriteLine($"Ошибка: {ex.Message}");
 }
 
+MediaLibrary movieLibrary = new MediaLibrary();
+
+try
+{
+    movieLibrary.AddMediaItem(matrix);
+    Console.WriteLine($"Фильмец Добавлен в Библиотеку");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Ошибка: {ex.Message}");
+}
+
+try
+{
+    movieLibrary.AddMediaItem(matrix);
+    Console.WriteLine($"Фильмец Добавлен в Библиотеку");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Ошибка: {ex.Message}");
+}
+
+try
+{
+    movieLibrary.AddMediaItem(bladeRunner);
+    Console.WriteLine($"Фильмец Добавлен в Библиотеку");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Ошибка: {ex.Message}");
+}
+
+movieLibrary.FindMediaItem("Matrix");
+movieLibrary.GetCountMediaItems();
+
+
+
