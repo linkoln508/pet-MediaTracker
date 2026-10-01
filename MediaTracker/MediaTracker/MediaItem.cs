@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MediaTracker
 {
-    public class MediaItem
+    public class MediaItem : IRateble
     {
         public string NameTitle { get; set; }
         public int ReleaseYear { get; set; }
@@ -17,7 +17,7 @@ namespace MediaTracker
             Dropped
         }
         public StatusEnum Status { get; set; }
-        public double Score { get; set; }
+        public double Score { get; private set; }
         public string Description { get; set; }
         public List<string> Director { get; set; } = new List<string>();
         public List<string> Genre { get; set; } = new List<string>();
@@ -37,6 +37,14 @@ namespace MediaTracker
         {
             return $"Названия Фильмеца: {NameTitle}, Year: {ReleaseYear}, Status: {Status}, Score: {Score}, Description: {Description}, Director: {string.Join(", ", Director)}, Genre: {string.Join(", ", Genre)}";
         }
+         public void Rate(double score)
+            {
+                if (score < 0 || score > 10)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(score), "Оценка должна быть от 0 до 10!!!");
+                }
+                Score = score;
+         }
     }
 
     public class Movie : MediaItem
